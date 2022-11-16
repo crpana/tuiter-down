@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { getDATA } from "../redux/action";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -13,8 +12,11 @@ export default function Home() {
         title: ''
     })
 
+
     const URL_VIDEOS = useSelector((state) => state.videos_url)
     console.log(URL_VIDEOS, 'esto es el reducer');
+
+
     function handleChange(e) {
         e.preventDefault()
 
@@ -30,19 +32,18 @@ export default function Home() {
     // console.log(input.title.split("/").pop());
     const id = input.title.split("/").pop();
 
-    console.log(id);
+    // console.log(id);
 
     function handleDownload(e) {
         e.preventDefault()
         dispatch(getDATA(id))
-        // const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos`)
-        // console.log(json);
+      
 
     }
 
 
     return (
-        <>
+        <div>
             <div>
 
                 <label>URL: </label>
@@ -53,6 +54,23 @@ export default function Home() {
                 <button onClick={e => handleDownload(e)}>DESCARGAR</button>
             </div>
 
-        </>
+            <div>
+
+                {
+                    URL_VIDEOS?.map(e => {
+                    
+
+                        return (
+
+                            <div key={e.url}>
+                                <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
+                                {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
+                            </div>
+                        );
+                    })
+                }
+            </div>
+
+        </div>
     );
 }
