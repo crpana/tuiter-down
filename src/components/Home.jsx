@@ -30,7 +30,7 @@ export default function Home() {
 
     async function handleDownload(e) {
         e.preventDefault()
-        const json = await axios.get(`http://localhost:3001/tweetUrlVideos`, { id_tuit: input.title.split("/").pop() })
+        const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos`)
         console.log(json);
 
     }
