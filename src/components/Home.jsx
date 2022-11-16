@@ -13,6 +13,8 @@ export default function Home() {
         title: ''
     })
 
+    const URL_VIDEOS = useSelector((state) => state.videos_url)
+    console.log(URL_VIDEOS, 'esto es el reducer');
     function handleChange(e) {
         e.preventDefault()
 
@@ -25,13 +27,16 @@ export default function Home() {
     // https://twitter.com/i/status/1587387444017729536
 
     // input.split("/").pop().split("_").shift()
-    console.log(input.title.split("/").pop());
+    // console.log(input.title.split("/").pop());
+    const id = input.title.split("/").pop();
 
+    console.log(id);
 
-    async function handleDownload(e) {
+    function handleDownload(e) {
         e.preventDefault()
-        const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos`)
-        console.log(json);
+        dispatch(getDATA(id))
+        // const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos`)
+        // console.log(json);
 
     }
 

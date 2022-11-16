@@ -4,18 +4,20 @@ import axios from "axios";
 export const GET_DATA_NAME = 'GET_DATA_NAME';
 
 
-export function getDATA(id_tuit) {
+export function getDATA(id) {
     return async function (dispatch) {
 
         try {
-            
-            const json = await axios.get("https://tuiter-down-production.up.railway.app/tweetUrlVideos")
+            console.log(id, 'aca el id en action');
+            // const json = await axios.get("https://tuiter-down-production.up.railway.app/tweetUrlVideos", payload)
+            const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos?id=${id}`)
 
-            console.log(json);
+
+            console.log(json, 'en accion');
 
             return dispatch({
                 type: GET_DATA_NAME,
-                payload: json
+                payload: json.data
 
             });
 
