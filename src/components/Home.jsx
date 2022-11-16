@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { getDATA } from "../redux/action";
 import { useSelector, useDispatch } from "react-redux";
+const twitterGetUrl = require("twitter-url-direct")
+
 
 export default function Home() {
 
@@ -15,7 +17,7 @@ export default function Home() {
 
         setInput({
             ...input,
-            title: e.target.value.split("/").pop().split("_").shift()
+            title: e.target.value
         })
 
     }
@@ -25,14 +27,12 @@ export default function Home() {
     console.log(input);
 
 
-    function handleDownload(e) {
+    async function handleDownload(e) {
         e.preventDefault()
 
-        // console.log(input);
-        // let json = await axios.get(`https://api.twitter.com/2/tweets/${input}?media.fields=preview_image_url,variants&expansions=attachments.media_keys`);
-        // console.log(json);
-        dispatch(getDATA(input))
-        
+        let json = await twitterGetUrl(input.title)
+        console.log(json);
+
     }
 
     // useSelector(() => {
