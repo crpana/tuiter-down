@@ -13,8 +13,8 @@ const token = BEARER_TOKEN;
 // ------------------------------------------------------------
 server.get('/tweetUrlVideos', async (req, res) => {
     // console.log(token);
-    const { id_tuit } = req.body;
-    // const id_tuit = "1569437835027181569";
+    // const { id_tuit } = req.body;
+    const id_tuit = "1569437835027181569";
     console.log(id_tuit,'este es el body');
     const tweetEndPoint = `https://api.twitter.com/2/tweets/${id_tuit}?media.fields=preview_image_url,variants&expansions=attachments.media_keys`
 
