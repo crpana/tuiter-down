@@ -6,7 +6,8 @@ const server = express();
 
 require('dotenv').config();
 const {
-    BEARER_TOKEN
+    BEARER_TOKEN,
+    PORT
 } = process.env;
 const token = BEARER_TOKEN;
 
@@ -39,6 +40,6 @@ server.get('/tweetUrlVideos', async (req, res) => {
     res.json('prueba anda')
 })
 
-server.listen(3001, () => {
+server.listen(PORT || 3001, () => {
     console.log('listening port 3001');
 })
