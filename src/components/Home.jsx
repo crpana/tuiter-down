@@ -14,7 +14,7 @@ export default function Home() {
 
 
     const URL_VIDEOS = useSelector((state) => state.videos_url)
-    console.log(URL_VIDEOS, 'esto es el reducer');
+    // console.log(URL_VIDEOS, 'esto es el reducer');
 
 
     function handleChange(e) {
@@ -30,14 +30,25 @@ export default function Home() {
 
     // input.split("/").pop().split("_").shift()
     // console.log(input.title.split("/").pop());
-    const id = input.title.split("/").pop();
+    if (input.title.includes('?t=')) {
+        //CELULAR
+        const id = input.title.split("/").pop().split('?').shift()
+        console.log(id, 'id viene dek celular');
+    } else {
+        //PC
+        const id = input.title.split("/").pop()
+
+        console.log(id, 'id viene de la pc');
+
+    }
+
 
     // console.log(id);
 
     function handleDownload(e) {
         e.preventDefault()
         dispatch(getDATA(id))
-      
+
 
     }
 
@@ -58,7 +69,7 @@ export default function Home() {
 
                 {
                     URL_VIDEOS?.map(e => {
-                    
+
 
                         return (
 
