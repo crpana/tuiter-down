@@ -14,7 +14,7 @@ export default function Home() {
 
 
     const URL_VIDEOS = useSelector((state) => state.videos_url)
-    // console.log(URL_VIDEOS, 'esto es el reducer');
+    console.log(URL_VIDEOS, 'esto es el reducer');
 
 
     function handleChange(e) {
@@ -71,19 +71,21 @@ export default function Home() {
                 <button className={style.submit} onClick={e => handleDownload(e)}>DESCARGAR</button>
             </div>
             <br></br>
-            <div c>
+            <div >
 
                 {
                     URL_VIDEOS?.map(e => {
 
+                        if (e.bit_rate) {
 
-                        return (
+                            return (
 
-                            <div key={e.url} lassName={style.input} >
-                                <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
-                                {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
-                            </div>
-                        );
+                                <div key={e.url} className={style.navLeft} >
+                                    <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
+                                    {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
+                                </div>
+                            );
+                        }
                     })
                 }
             </div>
