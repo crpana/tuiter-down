@@ -1,0 +1,75 @@
+.nav {
+    background-color: #6077c0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+
+}
+
+.navLeft {
+    margin-left: 3rem;
+    font-size: 2rem;
+}
+
+.navLeft a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navRight {
+    margin-right: 3rem;
+
+}
+
+.List {
+    list-style-type: none;
+    display: flex;
+
+}
+
+.navListItems a {
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 1rem;
+
+}
+
+a:hover {
+    color: #455073;
+}
+
+.input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+.submit {
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    /* outline: 0; */
+    text-align: center;
+    width: 15%;
+}
+.submit:active {
+  background-color: #06b;
+}

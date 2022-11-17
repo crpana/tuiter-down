@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { getDATA } from "../redux/action";
 import { useSelector, useDispatch } from "react-redux";
-
+import style from "../components/comp.module.css"
 
 
 export default function Home() {
@@ -58,17 +58,20 @@ export default function Home() {
 
     return (
         <div>
+            {/* <div>
+                <NavBar></NavBar>
+            </div> */}
             <div>
+                <label for='url'>URL: </label>
+                <input className={style.input} id='url' value={input.title} type='text' name='title' onChange={e => handleChange(e)} ></input>
 
-                <label>URL: </label>
-                <input value={input.title} type='text' name='title' onChange={e => handleChange(e)} ></input>
             </div>
 
             <div>
-                <button onClick={e => handleDownload(e)}>DESCARGAR</button>
+                <button className={style.submit} onClick={e => handleDownload(e)}>DESCARGAR</button>
             </div>
-
-            <div>
+            <br></br>
+            <div c>
 
                 {
                     URL_VIDEOS?.map(e => {
@@ -76,7 +79,7 @@ export default function Home() {
 
                         return (
 
-                            <div key={e.url}>
+                            <div key={e.url} lassName={style.input} >
                                 <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
                                 {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
                             </div>
