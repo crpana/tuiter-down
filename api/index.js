@@ -37,6 +37,7 @@ server.get('/tweetUrlVideos', async (req, res) => {
 
     const tuitDataMap = tuitData.data.includes.media[0].variants?.map(el => {
         return {
+            preview_image_url: tuitData.data.includes.media[0].preview_image_url,
             bit_rate: el.bit_rate,
             content_type: el.content_type,
             url: el.url

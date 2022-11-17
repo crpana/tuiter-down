@@ -8,9 +8,9 @@ export function getDATA(id) {
     return async function (dispatch) {
 
         try {
-            console.log(id, 'aca el id en action');
-            const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos?id=${id}`)
-            // const json = await axios.get(`http://localhost:3001/tweetUrlVideos?id=${id}`)
+            // console.log(id, 'aca el id en action');
+            // const json = await axios.get(`https://tuiter-down-production.up.railway.app/tweetUrlVideos?id=${id}`)
+            const json = await axios.get(`http://localhost:3001/tweetUrlVideos?id=${id}`)
 
 
 

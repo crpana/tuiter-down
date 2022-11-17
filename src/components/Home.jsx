@@ -14,7 +14,7 @@ export default function Home() {
 
 
     const URL_VIDEOS = useSelector((state) => state.videos_url)
-    console.log(URL_VIDEOS, 'esto es el reducer');
+    // console.log(URL_VIDEOS, 'esto es el reducer');
 
 
     function handleChange(e) {
@@ -40,13 +40,13 @@ export default function Home() {
         if (input.title.includes('?t=')) {
             //CELULAR
             const id = input.title.split("/").pop().split('?').shift()
-            console.log(id, 'id viene dek celular');
+            // console.log(id, 'id viene dek celular');
             dispatch(getDATA(id))
         } else {
             //PC
             const id = input.title.split("/").pop()
 
-            console.log(id, 'id viene de la pc');
+            // console.log(id, 'id viene de la pc');
             dispatch(getDATA(id))
 
         }
@@ -73,23 +73,27 @@ export default function Home() {
             <br></br>
             <div >
 
-                {
-                    URL_VIDEOS?.map(e => {
-
-                        if (e.bit_rate) {
-
-                            return (
-
-                                <div key={e.url} className={style.navLeft} >
-                                    <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
-                                    {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
-                                </div>
-                            );
-                        }
-                    })
-                }
+                <div>
+                    <img src={URL_VIDEOS[0]?.preview_image_url} alt="" height="100px" width="200px"></img>
             </div>
 
+            {
+                URL_VIDEOS?.map(e => {
+
+                    if (e.bit_rate) {
+
+                        return (
+
+                            <div key={e.url} className={style.navLeft} >
+                                <a href={e.url} target="_blank" rel="noreferrer noopener">{e.url.split("/")[7]}</a>
+                                {/* <button type="button" onClick={e => Redirecionar(e)}>{e.url.split("/")[7]}</button> */}
+                            </div>
+                        );
+                    }
+                })
+            }
         </div>
+
+        </div >
     );
 }
